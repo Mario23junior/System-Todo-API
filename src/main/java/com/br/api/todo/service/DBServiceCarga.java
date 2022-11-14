@@ -41,7 +41,7 @@ public class DBServiceCarga {
 		t4.setId(null);
 		t4.setDecricao("Enteder fluxagrama de dados descartaveis");
 		t4.setTitulo("Estudar fluxograma");
-		t4.setFinalizado(false);
+		t4.setFinalizado(true);
 		t4.setDataParaFinalizar(LocalDateTime.parse("23/12/2022 10:40", format));
 		repository.save(t4);
 
@@ -50,7 +50,7 @@ public class DBServiceCarga {
 		t5.setId(null);
 		t5.setDecricao("Não esquecer de ler documentação da tecnologia.");
 		t5.setTitulo("Estudar");
-		t5.setFinalizado(false);
+		t5.setFinalizado(true);
 		t5.setDataParaFinalizar(LocalDateTime.parse("29/11/2022 10:40", format));
 		repository.save(t5);
 

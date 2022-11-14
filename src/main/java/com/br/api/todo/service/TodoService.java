@@ -25,4 +25,9 @@ public class TodoService {
 		List<Todo> list = repository.findAllOPen();
  		return ResponseEntity.ok().body(list);
 	}
+	
+	public ResponseEntity<List<Todo>> listClose(){
+		List<Todo> list = repository.findAllClose();
+ 		return ResponseEntity.ok().body(list);
+	}
 }

@@ -28,4 +28,9 @@ public class TodoController {
 	public ResponseEntity<List<Todo>> findAllOpen(){
 		return service.listOPen();
 	}
+	
+	@GetMapping(value = "close")
+	public ResponseEntity<List<Todo>> findAllClose(){
+		return service.listClose();
+	}
 }

@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
+import com.br.api.todo.exceptions.ReturnErroObjectFailed;
 import com.br.api.todo.model.Todo;
 import com.br.api.todo.repository.TodoRepository;
 
@@ -20,7 +21,9 @@ public class TodoService {
 
 	public Todo listFindById(Long id) {
 		Optional<Todo> idbase = repository.findById(id);
-		return idbase.orElse(null);
+		return idbase.orElseThrow(()
+				-> new ReturnErroObjectFailed("Erro ao encontrar tarefa de id : "+
+		id+", por favor revise os valores"+Todo.class.getName()));
 	}
 
 	public ResponseEntity<List<Todo>> listOPen() {
@@ -38,7 +41,7 @@ public class TodoService {
 		ResponseEntity<List<Todo>> lis = ResponseEntity.ok().body(list);
 		return lis;
 	}
-	
+
 	public ResponseEntity<Todo> create(Todo todo) {
 		todo.setId(null);
 		Todo save = repository.save(todo);
@@ -46,27 +49,11 @@ public class TodoService {
 		ResponseEntity<Todo> savebase = ResponseEntity.created(uri).body(save);
 		return savebase;
 	}
-	
+
 	public ResponseEntity<Todo> delete(Long id) {
 		repository.deleteById(id);
- 		ResponseEntity<Todo> base = ResponseEntity.noContent().build();
+		ResponseEntity<Todo> base = ResponseEntity.noContent().build();
 		return base;
-
 	}
-	
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

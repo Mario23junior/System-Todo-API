@@ -46,4 +46,27 @@ public class TodoService {
 		ResponseEntity<Todo> savebase = ResponseEntity.created(uri).body(save);
 		return savebase;
 	}
+	
+	public ResponseEntity<Todo> delete(Long id) {
+		repository.deleteById(id);
+ 		ResponseEntity<Todo> base = ResponseEntity.noContent().build();
+		return base;
+
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

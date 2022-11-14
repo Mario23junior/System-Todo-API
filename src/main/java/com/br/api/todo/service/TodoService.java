@@ -1,5 +1,6 @@
 package com.br.api.todo.service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +10,7 @@ import com.br.api.todo.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Service
 public class TodoService {
@@ -35,5 +37,13 @@ public class TodoService {
 		List<Todo> list = repository.findAll();
 		ResponseEntity<List<Todo>> lis = ResponseEntity.ok().body(list);
 		return lis;
+	}
+	
+	public ResponseEntity<Todo> create(Todo todo) {
+		todo.setId(null);
+		Todo save = repository.save(todo);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(save.getId()).toUri();
+		ResponseEntity<Todo> savebase = ResponseEntity.created(uri).body(save);
+		return savebase;
 	}
 }

@@ -1,33 +1,39 @@
 package com.br.api.todo.handlerErrosReturn;
 
-import java.io.Serializable;
+import java.util.Date;
 
-public class ModelErroReturn implements Serializable {
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-	private static final long serialVersionUID = 1L;
-	private Long status;
+public class ModelErroReturn {
+
+	private int status;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	private Date timestamp;
 	private String message;
-	private String timestamp;
 	private String path;
 
-	public ModelErroReturn() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public ModelErroReturn(Long status, String message, String timestamp, String path) {
+	public ModelErroReturn(int status, Date timestamp, String message, String path) {
 		super();
 		this.status = status;
-		this.message = message;
 		this.timestamp = timestamp;
+		this.message = message;
 		this.path = path;
 	}
 
-	public Long getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(Long status) {
+	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public String getMessage() {
@@ -36,14 +42,6 @@ public class ModelErroReturn implements Serializable {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public String getTimestamp() {
-		return timestamp;
-	}
-
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
 	}
 
 	public String getPath() {

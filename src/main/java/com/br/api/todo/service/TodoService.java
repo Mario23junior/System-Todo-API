@@ -23,7 +23,7 @@ public class TodoService {
 		Optional<Todo> idbase = repository.findById(id);
 		return idbase.orElseThrow(()
 				-> new ReturnErroObjectFailed("Erro ao encontrar tarefa de id : "+
-		id+", por favor revise os valores"+Todo.class.getName()));
+		id+", por favor revise os valores em "+Todo.class.getName()));
 	}
 
 	public ResponseEntity<List<Todo>> listOPen() {

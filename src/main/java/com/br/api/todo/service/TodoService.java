@@ -12,22 +12,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TodoService {
-  
+
 	@Autowired
 	private TodoRepository repository;
-	
-	public Todo listFindById(Long id){
+
+	public Todo listFindById(Long id) {
 		Optional<Todo> idbase = repository.findById(id);
 		return idbase.orElse(null);
 	}
-	
-	public ResponseEntity<List<Todo>> listOPen(){
+
+	public ResponseEntity<List<Todo>> listOPen() {
 		List<Todo> list = repository.findAllOPen();
- 		return ResponseEntity.ok().body(list);
+		return ResponseEntity.ok().body(list);
 	}
-	
-	public ResponseEntity<List<Todo>> listClose(){
+
+	public ResponseEntity<List<Todo>> listClose() {
 		List<Todo> list = repository.findAllClose();
- 		return ResponseEntity.ok().body(list);
+		return ResponseEntity.ok().body(list);
+	}
+
+	public ResponseEntity<List<Todo>> listAll() {
+		List<Todo> list = repository.findAll();
+		ResponseEntity<List<Todo>> lis = ResponseEntity.ok().body(list);
+		return lis;
 	}
 }

@@ -23,14 +23,19 @@ public class TodoController {
 	public Todo listIdBase(@PathVariable Long id) {
 		return service.listFindById(id);
 	}
-	
+
 	@GetMapping(value = "open")
-	public ResponseEntity<List<Todo>> findAllOpen(){
+	public ResponseEntity<List<Todo>> findAllOpen() {
 		return service.listOPen();
 	}
-	
+
 	@GetMapping(value = "close")
-	public ResponseEntity<List<Todo>> findAllClose(){
+	public ResponseEntity<List<Todo>> findAllClose() {
 		return service.listClose();
+	}
+
+	@GetMapping
+	public ResponseEntity<List<Todo>> listAll() {
+		return service.listAll();
 	}
 }

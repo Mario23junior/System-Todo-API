@@ -56,4 +56,15 @@ public class TodoService {
 		return base;
 	}
 
+	public ResponseEntity<Todo> updateTodo(Long id, Todo todo) {
+		Todo idfind = listFindById(id);
+		idfind.setTitulo(todo.getTitulo());
+		idfind.setDataParaFinalizar(todo.getDataParaFinalizar());
+		idfind.setFinalizado(todo.getFinalizado());
+		idfind.setDecricao(todo.getDecricao());
+		Todo savebase = repository.save(idfind);
+		return ResponseEntity.ok().body(savebase);
+
+	}
+
 }

@@ -22,7 +22,7 @@ public class Todo implements Serializable {
 	private String titulo;
 
 	@Column(length = 5000)
-	private String decricao;
+	private String descricao;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataParaFinalizar;
@@ -48,12 +48,12 @@ public class Todo implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public String getDecricao() {
-		return decricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDecricao(String decricao) {
-		this.decricao = decricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	public Date getDataParaFinalizar() {
@@ -74,7 +74,7 @@ public class Todo implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataParaFinalizar, decricao, finalizado, titulo);
+		return Objects.hash(dataParaFinalizar, descricao, finalizado, titulo);
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class Todo implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Todo other = (Todo) obj;
-		return Objects.equals(dataParaFinalizar, other.dataParaFinalizar) && Objects.equals(decricao, other.decricao)
+		return Objects.equals(dataParaFinalizar, other.dataParaFinalizar) && Objects.equals(descricao, other.descricao)
 				&& Objects.equals(finalizado, other.finalizado) && Objects.equals(titulo, other.titulo);
 	}
 

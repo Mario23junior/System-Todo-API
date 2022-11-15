@@ -61,7 +61,7 @@ public class TodoService {
 		idfind.setTitulo(todo.getTitulo());
 		idfind.setDataParaFinalizar(todo.getDataParaFinalizar());
 		idfind.setFinalizado(todo.getFinalizado());
-		idfind.setDecricao(todo.getDecricao());
+		idfind.setDescricao(todo.getDescricao());
 		Todo savebase = repository.save(idfind);
 		return ResponseEntity.ok().body(savebase);
 

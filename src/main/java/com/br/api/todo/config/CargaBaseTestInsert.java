@@ -1,5 +1,7 @@
 package com.br.api.todo.config;
 
+import java.text.ParseException;
+
 import com.br.api.todo.service.DBServiceCarga;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ public class CargaBaseTestInsert {
 	private DBServiceCarga carga;
 	
 	@Bean
-	public boolean instance() {
+	public boolean instance() throws ParseException {
 		this.carga.instanceBaseCarga();
 		return true;
 	}

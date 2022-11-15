@@ -1,7 +1,6 @@
 package com.br.api.todo.model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Todo implements Serializable {
@@ -22,6 +23,8 @@ public class Todo implements Serializable {
 
 	@Column(length = 5000)
 	private String decricao;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private Date dataParaFinalizar;
 	private Boolean finalizado = false;
 

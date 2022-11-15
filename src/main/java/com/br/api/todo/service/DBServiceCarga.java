@@ -1,7 +1,7 @@
 package com.br.api.todo.service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import com.br.api.todo.model.Todo;
 import com.br.api.todo.repository.TodoRepository;
@@ -15,16 +15,16 @@ public class DBServiceCarga {
 	@Autowired
 	private TodoRepository repository;
 
-	public void instanceBaseCarga() {
-
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
+	public void instanceBaseCarga() throws ParseException {
+       
+		SimpleDateFormat formt = new SimpleDateFormat("dd/MM/yyyy");
+ 
 		Todo t1 = new Todo();
 		t1.setId(null);
 		t1.setDecricao("Realizar caminhadas pelal manhãn as 09:00.");
 		t1.setTitulo("Estudar");
 		t1.setFinalizado(false);
-		t1.setDataParaFinalizar(LocalDateTime.parse("13/11/2022 10:40", format));
+		t1.setDataParaFinalizar(formt.parse("13/11/2022"));
 		repository.save(t1);
 
 
@@ -33,7 +33,7 @@ public class DBServiceCarga {
 		t2.setDecricao("Entender utilziação do quarkus.");
 		t2.setTitulo("Estudar quarkus");
 		t2.setFinalizado(false);
-		t2.setDataParaFinalizar(LocalDateTime.parse("14/11/2022 10:40", format));
+		t2.setDataParaFinalizar(formt.parse("14/11/2022 10:40"));
 		repository.save(t2);
 
 
@@ -42,7 +42,7 @@ public class DBServiceCarga {
 		t4.setDecricao("Enteder fluxagrama de dados descartaveis");
 		t4.setTitulo("Estudar fluxograma");
 		t4.setFinalizado(true);
-		t4.setDataParaFinalizar(LocalDateTime.parse("23/12/2022 10:40", format));
+		t4.setDataParaFinalizar(formt.parse("23/12/2022"));
 		repository.save(t4);
 
 
@@ -51,7 +51,7 @@ public class DBServiceCarga {
 		t5.setDecricao("Não esquecer de ler documentação da tecnologia.");
 		t5.setTitulo("Estudar");
 		t5.setFinalizado(true);
-		t5.setDataParaFinalizar(LocalDateTime.parse("29/11/2022 10:40", format));
+		t5.setDataParaFinalizar(formt.parse("29/11/2022"));
 		repository.save(t5);
 
 
@@ -60,7 +60,7 @@ public class DBServiceCarga {
 		t6.setDecricao("Agender series de acesso.");
 		t6.setTitulo("Entreterimento");
 		t6.setFinalizado(false);
-		t6.setDataParaFinalizar(LocalDateTime.parse("13/11/2022 10:40", format));
+		t6.setDataParaFinalizar(formt.parse("13/11/2022"));
 		repository.save(t6);
 
 
@@ -69,7 +69,7 @@ public class DBServiceCarga {
 		t7.setDecricao("Analissar estrutura de montar um mestrado.");
 		t7.setTitulo("Pensar em TCC");
 		t7.setFinalizado(false);
-		t7.setDataParaFinalizar(LocalDateTime.parse("13/11/2022 10:40", format));
+		t7.setDataParaFinalizar(formt.parse("13/11/2022"));
 		repository.save(t7);
 
 
@@ -78,7 +78,7 @@ public class DBServiceCarga {
 		t8.setDecricao("Realizar estudor de docker");
 		t8.setTitulo("Estudar docker");
 		t8.setFinalizado(false);
-		t8.setDataParaFinalizar(LocalDateTime.parse("19/11/2022 10:40", format));
+		t8.setDataParaFinalizar(formt.parse("19/11/2022"));
 		repository.save(t8);
 
         Todo t9 = new Todo();
@@ -86,7 +86,7 @@ public class DBServiceCarga {
 		t9.setDecricao("Estudar maus enfazes do quarkus");
 		t9.setTitulo("Estudar quarkus ");
 		t9.setFinalizado(false);
-		t9.setDataParaFinalizar(LocalDateTime.parse("26/11/2022 10:40", format));
+		t9.setDataParaFinalizar(formt.parse("26/11/2022"));
 		repository.save(t9);
 
 
@@ -95,7 +95,7 @@ public class DBServiceCarga {
 		t11.setDecricao("Realizar 8 voltar ");
 		t11.setTitulo("Exercicios");
 		t11.setFinalizado(false);
-		t11.setDataParaFinalizar(LocalDateTime.parse("18/11/2022 10:40", format));
+		t11.setDataParaFinalizar(formt.parse("18/11/2022"));
 		repository.save(t11);
 
 
@@ -104,7 +104,7 @@ public class DBServiceCarga {
 		t12.setDecricao("Melhorar estruturas ativas de codigo fonte.");
 		t12.setTitulo("Estudar");
 		t12.setFinalizado(false);
-		t12.setDataParaFinalizar(LocalDateTime.parse("13/11/2022 10:40", format));
+		t12.setDataParaFinalizar(formt.parse("13/11/2022"));
 		repository.save(t12);
 		
 		

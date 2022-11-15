@@ -2,6 +2,7 @@ package com.br.api.todo.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -11,17 +12,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Todo implements Serializable{
+public class Todo implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
-	
+
 	@Column(length = 5000)
 	private String decricao;
-	private LocalDateTime dataParaFinalizar;
+	private Date dataParaFinalizar;
 	private Boolean finalizado = false;
 
 	public Todo() {
@@ -52,11 +53,11 @@ public class Todo implements Serializable{
 		this.decricao = decricao;
 	}
 
-	public LocalDateTime getDataParaFinalizar() {
+	public Date getDataParaFinalizar() {
 		return dataParaFinalizar;
 	}
 
-	public void setDataParaFinalizar(LocalDateTime dataParaFinalizar) {
+	public void setDataParaFinalizar(Date dataParaFinalizar) {
 		this.dataParaFinalizar = dataParaFinalizar;
 	}
 
